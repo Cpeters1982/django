@@ -1,0 +1,11 @@
+django-admin startproject <projectname>
+ls
+cd <projectname>
+mkdir apps
+ls
+cd apps
+touch __init__.py
+ls
+django-admin startup login
+ls
+cd login
