@@ -1,0 +1,38 @@
+Welcome, {{request.session.f_name}}!<br>
+	{%if messages%}
+		{%for message in messages%}
+			<p>{{message}}</p>
+		{%endfor%}
+	{%endif%}
+
+<a href="/logout">Logout here.</a><br>
+
+
+
+<table border="1">
+<tr>
+	<th>name</th>
+	<th>age</th>
+	<th>likes</th>
+	<th>action</th>
+</tr>
+	{%for cat in cats%}
+		<tr>
+			<td>{{cat.name}}</td>
+			<td>{{cat.age}}</td>
+			<td>{{cat.likes}}</td>	
+			{%if cat.owner.id == request.session.user_id%}
+				<td><p><a href="sdsdh">edit</a> | <a href="sdklsd">delete</a> </p></td>
+				{%else%}
+					<td><p><a href="/cats/like/{{cat.id}}">Add like</a> </p></td>
+			{%endif%}			
+		</tr>
+
+	{%endfor%}
+
+</table>
+
+
+
+
+<a href="/cats/addform">Click here to add a cat.</a>

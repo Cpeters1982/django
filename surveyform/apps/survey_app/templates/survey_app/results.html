@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Results!</title>
+  </head>
+  <body>
+    <h3>Thanks for submitting! You have submitted this form {{request.session.counter}} times!</h3>
+      <ul class="list-group">
+        {% for info in request.session.data.items %}
+            <li class="list-group-item">{{ info.0 }}: {{info.1}}</li>
+        {% endfor %}
+      </ul>
+      <a href='/'>Take me back!</a>
+  </body>
+</html>

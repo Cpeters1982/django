@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cats!</title>
+  </head>
+ <body>
+   {%if messages%}
+    {%for message in messages%}
+      {% if message.tags == 'error' %}
+        <p style= "color:red">{{messages}}</p>
+        {%endif%}
+        {% if message.tags == 'success' %}
+        <p style= "color:green">{{messages}}</p>
+      {%endif%}
+    {%endfor%}
+{%endif%}
+    <H2>Please login or register to add your cats!</H2>
+    <form action="/register" method="POST">
+      {%csrf_token%}
+      <p>
+        <input type="text" name="fname" placeholder="Enter your first name" autofocus>
+      </p>
+      <p>
+        <input type="text" name="lname" placeholder="Enter your last name">
+      </p>
+      <p>
+        <input type="email" name="email" placeholder="Enter a valid email">
+      </p>
+      <p>
+        <input type="password" name="password" placeholder="Enter a password">
+      </p>
+      <p>
+        <input type="password" name="cpassword" placeholder="Please confirm your password">
+      </p>
+      <p>
+        <input type="submit" value="Register">
+      </p>
+    </form>
+
+    <h2>Login Here:</h2>
+    <form action="/login" method='POST'>
+      {%csrf_token%}
+      <p>
+        <input type="email" name="email" placeholder="Please enter your email">
+      </p>
+      <p>
+        <input type="password" name="password" placeholder="Please enter your password">
+      </p>
+      <p>
+        <input type="submit" value="login">
+      </p>
+    </form>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
